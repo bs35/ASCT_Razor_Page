@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using ASCT_Razor_Page.Models;
 
 namespace ASCT_Razor_Page.Pages
 {
@@ -28,8 +29,8 @@ namespace ASCT_Razor_Page.Pages
 
         // when the post request is sent (submit is clicked)
         public IActionResult OnPost() {
-            if (ModelState.Invalid == false) {
-                return Page;
+            if (ModelState.IsValid == false) {
+                return Page();
             }
 
             return RedirectToPage("/AdminUI");
