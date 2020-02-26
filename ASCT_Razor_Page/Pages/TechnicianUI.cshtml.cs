@@ -33,5 +33,15 @@ namespace ASCT_Razor_Page.Pages
         {
 
         }
+
+        public IActionResult OnPost()
+        { 
+            if (ModelState.IsValid == false)
+            {
+                // add the input check later
+                return Page();
+            }
+            return Page();
+        }
     }
 }
