@@ -70,51 +70,42 @@
     <br />
     <br />
 
-    <div ng-show="isVisible" class="ng-hide">
-        <table class="table">
-
-            <tbody>
-                <tr>
-                    <th scope="row">Tail Number</th>
-                    <!--change later with the get method updeted-->>
-                    <td>224AS</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">LRU Name</th>
-                    <!--record model of user's input-->>
-                    <td>FMC</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">LRU Part Number</th>
-                    <td>NU176200-01-01</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">Software Name</th>
-                    <td>OPS</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">Software Part Number</th>
-                    <td>5569090-001</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">EC Number</th>
-                    <td>SB737-34-2600-NG-1</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">Pre Condition/Post Condition</th>
-                    <td>PRE</td>
-
-                </tr>
-
-            </tbody>
+<div ng-show="isVisible" class="ng-hide">
+    <p id="output-tail-num"> Tail: </p>
+    <p id="output-system-name"> System: </p>
+    <table class="table" id="part-number-table">
+        <tbody>
+        <!-- table body will have varying number of rows based on the number of hardware parts in the system.
+        The code below is a sample output for the FMC system. We'll need to recieve almost all table data from
+        API except for the HW part number header -->
+        <tr>
+            <th scope="row"><b>HW Part Number</b></th>
+            <!--change later with the get method updated-->
+            <th>OPS</th>
+            <th>OPC</th>
+            <th>MEDB</th>
+            <th>ADDB</th>
+            <th>Nav DB</th>            
+        </tr>
+        <tr>
+            <th scope="row">176200-10</th>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+        </tr>
+        <tr>
+            <th scope="row">171497-05-01</th>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+            <td>part-num</td>
+        </tr>
+        </tbody>
         </table>
-    </div>
+</div>
     &nbsp;
 </body>
 </html>

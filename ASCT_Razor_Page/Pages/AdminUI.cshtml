@@ -11,25 +11,74 @@
     <meta charset="utf-8" />
     <title>Alaska Airlines Software Configuration Tool</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="~/css/ASCT_Style.css" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    
+    <!-- Import Links for Checkmarks on Fleet select-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+    <script type="text/javascript" src="~/js/asct.js"></script>
+    
+    
 </head>
 <body>
-    <h1 id="title">Alaska Airlines Software Configuration <b>Admin</b> Tool</h1>
+    <h1 id="title">Alaska Airlines Software Configuration <b>Admin</b> Portal</h1>
     <br>
-    <div id="fleet-select">
-        <button type="button" class="btn btn-outline-primary">Boeing</button>
-        <button type="button" class="btn btn-outline-primary">Airbus</button>
+
+    <!--
+    <div id="fleet-select-admin">
+        <button type="button" id="boeing-button" class="btn btn-outline-primary">Boeing</button>
+        <button type="button" id="airbus-button" class="btn btn-outline-primary">Airbus</button>
     </div>
-    <br>
-    <div id="tail-number-section">
+    -->
+        <div class="container modified_container" id="fleet-select-admin">
+            <label>
+                <input type="radio" name="demo" class="card-input-element" value="airbus" id="boeing-button">
+                <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                    Boeing
+                </div>
+            </label>
+            <label>
+                <input type="radio" name="demo" class="card-input-element" value="airbus" id="airbus-button">
+                <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                    Airbus
+                </div>
+            </label>
+        </div>
+      
+<br>
+
+    <div id="tail-number-section">   
         <form>
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
-                <label for="tail-number">Tail Number</label>
-                <input type="text" asp-for="Unit.Tail_Number" class="form-control" id="tail-number" placeholder="ex: 224AS">
+                <label for="system-name">Tail Number(s)</label>
+                <input type="text" class="form-control" id="tail-number" placeholder="ex: FMC">
             </div>
         </form>
+        <!--
+        <select class="js-example-basic-multiple" name="tailNumbers[]" multiple="multiple" id="tail-num-select">
+            
+            <option value="122">122</option>
+            <option value="123">123</option>
+            <option value="123">124</option>
+            <option value="123">125</option>
+            <option value="123">325</option>
+            <option value="123">471</option>
+            <option value="123">095</option>
+
+        </select>
+        -->
     </div>
 
     <br />
