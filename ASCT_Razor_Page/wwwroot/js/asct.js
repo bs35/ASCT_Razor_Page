@@ -8,3 +8,7 @@ app1.controller('MyController', function ($scope) {
         $scope.isVisible = true;
     }
 });
+
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});

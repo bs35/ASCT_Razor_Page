@@ -1,14 +1,46 @@
 h1 { 
+    
+}
 
+#title {
+    text-align: center;
+}
 
-
+#part-number-table {
+    border-color: #1b6ec2;
 }
 
 #fleet-select {
     width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 400px;
     text-align: center;
+}
 
+#fleet-select-admin {
+    width: 100%;
+    text-align: center;
+}
+
+#boeing-button {
+    padding: 15px 25px;
+    font-size: 30px;
+    border-radius: 10px;
+    border-color: blue;
+    background-color: #94c1ff;
+    color: blue;
+    outline-color: blue;
+}
+ 
+#airbus-button {
+    padding: 15px 25px;
+    font-size: 30px;
+    border-radius: 10px;
+    border-color: red;
+    background-color: #ffd1d1;
+    color: red;
+    outline-color: red;
 }
 
 body {
