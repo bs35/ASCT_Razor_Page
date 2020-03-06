@@ -28,7 +28,7 @@ namespace ASCT_Razor_Page.Pages
         public Aircraft Unit { get; set; }
 
         // when the post request is sent (submit is clicked)
-        public IActionResult OnPost() {
+        public IActionResult OnPost(Aircraft model) {
             if (ModelState.IsValid == false) {
                 return Page();
             }
