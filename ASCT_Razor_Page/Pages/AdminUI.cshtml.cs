@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using ASCT_Razor_Page.Models;
 
+
 namespace ASCT_Razor_Page.Pages
 {
     public class AdminUIModel : PageModel
@@ -27,13 +28,25 @@ namespace ASCT_Razor_Page.Pages
         [BindProperty]
         public Aircraft Unit { get; set; }
 
+
+
         // when the post request is sent (submit is clicked)
         public IActionResult OnPost(Aircraft model) {
-            if (ModelState.IsValid == false) {
-                return Page();
+            try
+            {
+                if (ModelState.IsValid == false)
+                {
+                    return Page();
+                }
+                db dbop = new db();
+                string result = dbop.InsertRecord(Unit); //(for Aircaft unit)
+                return RedirectToPage("/AdminUI");
             }
-
-            return RedirectToPage("/AdminUI");
+            catch (Exception ex)
+            { 
+            
+            }
+            return Page();
         }
     }
 }

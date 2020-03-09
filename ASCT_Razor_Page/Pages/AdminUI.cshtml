@@ -138,9 +138,9 @@
     </div>
 
     <br />
-    <div id="pre-post-section">
+    <div id="pre-post-section" asp-for="Unit.Pre_Post_Condition">
         <input type="radio" name="pre-post-condition" value="Pre">Pre<br>
-        <input type="radio" name="pre-post-condition" value="Pre">Pre<br>
+        <input type="radio" name="pre-post-condition" value="Post">Pre<br>
         <input type="radio" name="pre-post-condition" value="None">None<br>
     </div>
 
@@ -150,7 +150,7 @@
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
                 <label for="system-name">E/C Number</label>
-                <input type="text" class="form-control" id="EC-number" placeholder="ex: SB737-34-2600-NG-1">
+                <input type="text" class="form-control" id="EC-number" asp-for="Unit.EC_Number" placeholder="ex: SB737-34-2600-NG-1">
             </div>
         </form>
     </div>
