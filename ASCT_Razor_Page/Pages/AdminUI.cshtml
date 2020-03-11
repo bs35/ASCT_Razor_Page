@@ -99,16 +99,6 @@
         </form>
     </div>
 
-    <div id="software-name-section">
-        <form>
-            <div class="form-group">
-                <!-- Design choice; label or no label for tail number input?-->
-                <label for="system-name">S/W Name</label>
-                <input type="text" asp-for="Unit.Software_Name" class="form-control" id="software-name" placeholder="ex: OPS">
-            </div>
-        </form>
-    </div>
-
     <div id="software-part-number-section">
         <form>
             <div class="form-group">
@@ -125,7 +115,7 @@
                 <!-- Design choice; label or no label for tail number input?-->
                 <!-- Can be removed since it's redundant with Software Name -->
                 <label for="system-name">System Name</label>
-                <input type="text" class="form-control" id="system-name" placeholder="ex: FMC">
+                <input type="text" class="form-control" asp-for="Unit.Software_Name" id="system-name" placeholder="ex: FMC">
             </div>
         </form>
     </div>
