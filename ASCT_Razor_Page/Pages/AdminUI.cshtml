@@ -22,7 +22,7 @@
         });
     </script>
     
-    <!-- Import Links for Checkmarks on Fleet select-->
+    <!-- Import Links for Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
@@ -40,23 +40,23 @@
         <button type="button" id="airbus-button" class="btn btn-outline-primary">Airbus</button>
     </div>
     -->
-        <div class="container modified_container" id="fleet-select-admin">
-            <label>
-                <input type="radio" name="demo" class="card-input-element" value="airbus" id="boeing-button">
-                <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
-                    Boeing
-                </div>
-            </label>
-            <label>
-                <input type="radio" name="demo" class="card-input-element" value="airbus" id="airbus-button">
-                <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
-                    Airbus
-                </div>
-            </label>
-        </div>
-      
+    <div class="container modified_container" id="fleet-select-admin">
+        <label>
+            <input type="radio" name="demo" class="card-input-element" value="airbus" id="boeing-button">
+            <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                Boeing
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="demo" class="card-input-element" value="airbus" id="airbus-button">
+            <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                Airbus
+            </div>
+        </label>
+    </div>
 
-    <div id="tail-number-section">   
+
+    <div id="tail-number-section">
         <form>
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
@@ -66,7 +66,7 @@
         </form>
         <!--
         <select class="js-example-basic-multiple" name="tailNumbers[]" multiple="multiple" id="tail-num-select">
-            
+
             <option value="122">122</option>
             <option value="123">123</option>
             <option value="123">124</option>
@@ -136,18 +136,103 @@
 
     </div>
 
-        <div id="EC-number-section">
-            <form>
-                <div class="form-group">
-                    <!-- Design choice; label or no label for tail number input?-->
-                    <label for="system-name">E/C Number</label>
-                    <input type="text" class="form-control" id="EC-number" asp-for="Unit.EC_Number" placeholder="ex: SB737-34-2600-NG-1">
-                </div>
-            </form>
-        </div>
-        <br />
+    <div id="EC-number-section">
+        <form>
+            <div class="form-group">
+                <!-- Design choice; label or no label for tail number input?-->
+                <label for="system-name">E/C Number</label>
+                <input type="text" class="form-control" id="EC-number" asp-for="Unit.EC_Number" placeholder="ex: SB737-34-2600-NG-1">
+            </div>
+        </form>
+    </div>
+
+    <br />
+
+    <!--
+
+    <div id="submit">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
+    -->
+
+    <br />
+
+    <!--
+    <div ng-app="TestApp" ng-controller="TestController" ng-model="value">
+
+        App: {{value}}
+
+        <script>var app1 = angular.module('TestApp', []);
+
+            app1.controller('TestController', function ($scope) {
+
+                $scope.value = "Test App";
+
+            });</script>
+    </div>
+    -->
+
+    <div id="submitConfirm" ng-app="app" ng-controller="MyController">
+
         <div id="submit">
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input ng-click="openTable()" class="btn btn-primary" type="submit" value="Submit">
         </div>
+
+        <br />
+        <br />
+
+        <div id="confirm" ng-show="isVisible" class="ng-hide">
+
+            <h2>Confirmation:</h2>
+            <p>
+                Fleet: {{fleetName}} 
+                Tail Number(s): {{tailNumber}} <br />
+                System Name: {{systemName}}<br />
+                LRU Name: {{hardwareName}}<br />
+                LRU Part Number: {{hardwarePartNumber}}<br />
+                Software Name: {{softwareName}}<br />
+                Software Part Number: {{softwarePartNumber}}<br />
+                Pre/Post Condition: {{prePost}}<br />
+                EC Number: {{ecNum}}<br />
+            </p>
+
+            <br /> 
+
+            <p> Would like to submit the part information displayed above? </p>
+            <input class="btn btn-primary" type="submit" value="Confirm">
+
+        </div>
+
+        <script>
+            var app = angular.module('ConfirmationApp', ['ngRoute']);
+
+            app.controller('ConfirmationController', function ($scope) {
+
+                $scope.isVisible() = false;
+
+                
+                $scope.openConfirmation() = function () {
+                    $scope.isVisible = true;
+                }
+                
+
+                $scope.fleetName = "Boeing";
+                $scope.tailNumber = "224AS";
+                $scope.systemName = "FMC";
+                $scope.hardwareName = "FMC";
+                $scope.hardwarePartNumber = "176200-01-01";
+                $scope.softwareName = "OPS";
+                $scope.softwarePartNumber = "5569090-001";
+                $scope.prePost = "PRE";
+                $scope.ecNum = "54467";
+
+            });</script>
+    </div>
+
+
+    <br />
+    <br />
+
+
 </body>
 </html>

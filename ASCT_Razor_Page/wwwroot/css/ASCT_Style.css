@@ -18,6 +18,10 @@ h1 {
     text-align: center;
 }
 
+#confirm {
+    text-align: center;
+}
+
 #part-number-table {
     border-color: #1b6ec2;
 }

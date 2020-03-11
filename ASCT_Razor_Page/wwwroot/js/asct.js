@@ -7,6 +7,16 @@ app1.controller('MyController', function ($scope) {
     $scope.openTable = function() {
         $scope.isVisible = true;
     }
+
+    $scope.fleetName = "Boeing";
+    $scope.tailNumber = "224AS";
+    $scope.systemName = "FMC";
+    $scope.hardwareName = "FMC";
+    $scope.hardwarePartNumber = "176200-01-01";
+    $scope.softwareName = "OPS";
+    $scope.softwarePartNumber = "5569090-001";
+    $scope.prePost = "PRE";
+    $scope.ecNum = "54467";
 });
 
 $(document).ready(function() {
