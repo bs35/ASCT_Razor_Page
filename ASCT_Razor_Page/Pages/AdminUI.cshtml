@@ -33,7 +33,6 @@
 </head>
 <body>
     <h1 id="title">Alaska Airlines Software Configuration <b>Admin</b> Portal</h1>
-    <br>
 
     <!--
     <div id="fleet-select-admin">
@@ -56,7 +55,6 @@
             </label>
         </div>
       
-<br>
 
     <div id="tail-number-section">   
         <form>
@@ -81,7 +79,6 @@
         -->
     </div>
 
-    <br />
     <div id="LRU-name-section">
         <form>
             <div class="form-group">
@@ -92,7 +89,6 @@
         </form>
     </div>
 
-    <br />
     <div id="LRU-part-number-section">
         <form>
             <div class="form-group">
@@ -102,7 +98,6 @@
             </div>
         </form>
     </div>
-    <br />
 
     <div id="software-name-section">
         <form>
@@ -113,7 +108,6 @@
             </div>
         </form>
     </div>
-    <br />
 
     <div id="software-part-number-section">
         <form>
@@ -125,38 +119,45 @@
         </form>
     </div>
 
-    <br />
     <div id="system-name-section">
         <form>
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
-                <!-- Can be removed since it's redundant with Software Name -->>
+                <!-- Can be removed since it's redundant with Software Name -->
                 <label for="system-name">System Name</label>
                 <input type="text" class="form-control" id="system-name" placeholder="ex: FMC">
             </div>
         </form>
     </div>
 
-    <br />
     <div id="pre-post-section" asp-for="Unit.Pre_Post_Condition">
-        <input type="radio" name="pre-post-condition" value="Pre">Pre<br>
-        <input type="radio" name="pre-post-condition" value="Post">Pre<br>
-        <input type="radio" name="pre-post-condition" value="None">None<br>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="pre-post-condition" class="custom-control-input" value="Pre">
+            <label class="custom-control-label" for="customRadio1">Pre</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="pre-post-condition" class="custom-control-input" value="Post">
+            <label class="custom-control-label" for="customRadio2">Post</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio3" name="pre-post-condition" class="custom-control-input" value="None">
+            <label class="custom-control-label" for="customRadio3">None</label>
+        </div>
+
     </div>
 
-    <br />
-    <div id="EC-number-section">
-        <form>
-            <div class="form-group">
-                <!-- Design choice; label or no label for tail number input?-->
-                <label for="system-name">E/C Number</label>
-                <input type="text" class="form-control" id="EC-number" asp-for="Unit.EC_Number" placeholder="ex: SB737-34-2600-NG-1">
-            </div>
-        </form>
-    </div>
-    <br />
-    <div id="submit">
-        <input class="btn btn-primary" type="submit" value="Submit">
-    </div>
+        <div id="EC-number-section">
+            <form>
+                <div class="form-group">
+                    <!-- Design choice; label or no label for tail number input?-->
+                    <label for="system-name">E/C Number</label>
+                    <input type="text" class="form-control" id="EC-number" asp-for="Unit.EC_Number" placeholder="ex: SB737-34-2600-NG-1">
+                </div>
+            </form>
+        </div>
+        <br />
+        <div id="submit">
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
 </body>
 </html>
