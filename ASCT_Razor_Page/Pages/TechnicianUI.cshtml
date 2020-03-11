@@ -61,15 +61,15 @@
       <br />
 
 <div ng-show="isVisible" class="ng-hide">
-    <p id="output-tail-num" class="badge badge-pill badge-primary"> Tail: </p>
-    <p id="output-system-name" class="badge badge-pill badge-secondary"> System: </p>
+    <p id="output-tail-num" class="badge badge-pill badge-primary"> Tail: 224AS</p>
+    <p id="output-system-name" class="badge badge-pill badge-secondary"> System: FMC</p>
     <table class="table table-striped table-dark table-bordered" id="part-number-table">
         <tbody>
         <!-- table body will have varying number of rows based on the number of hardware parts in the system.
         The code below is a sample output for the FMC system. We'll need to recieve almost all table data from
         API except for the HW part number header -->
         <tr>
-            <th scope="row"><b>HW Part Number</b></th>
+            <th scope="row"><b>LRU Part Number</b></th>
             <!--change later with the get method updated-->
             <th>OPS</th>
             <th>OPC</th>
@@ -78,20 +78,20 @@
             <th>Nav DB</th>            
         </tr>
         <tr>
-            <th scope="row">176200-10</th>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
+            <th scope="row">176200-01-01</th>
+            <td>5569090-001</td>
+            <td>BCG-01T-61</td>
+            <td>BCG01TA0</td>
+            <td>ASA1007A</td>
+            <td>Current Date Range</td>
         </tr>
         <tr>
             <th scope="row">171497-05-01</th>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
-            <td>part-num</td>
+            <td>5569090-001</td>
+            <td>BCG-01T-61</td>
+            <td>BCG01TA0</td>
+            <td>ASA1007A</td>
+            <td>Current Date Range</td>
         </tr>
         </tbody>
         </table>
