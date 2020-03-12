@@ -12,6 +12,7 @@ namespace ASCT_Razor_Page.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly ApplicationDbContext _db;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -29,13 +30,13 @@ namespace ASCT_Razor_Page.Pages
         [BindProperty]
         public Aircraft Unit { get; set; }
         //
-        public void OnGet()
+        public async Task OnGetAsync()
         {
 
         }
 
-        public IActionResult OnPost()
-        { 
+        public async Task<IActionResult> OnPostAsync()
+        {  
             if (ModelState.IsValid == false)
             {
                 // add the input check later
