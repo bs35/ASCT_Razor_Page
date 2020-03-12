@@ -30,7 +30,7 @@
 
 
 </head>
-<body>
+<body ng-app="app">
     <h1 id="title">Alaska Airlines Software Configuration <b>Admin</b> Portal</h1>
 
     <!--
@@ -39,6 +39,8 @@
         <button type="button" id="airbus-button" class="btn btn-outline-primary">Airbus</button>
     </div>
     -->
+    <br />
+    <br />
     <div class="container modified_container" id="fleet-select-admin">
         <label>
             <input type="radio" name="demo" class="card-input-element" value="airbus" id="boeing-button">
@@ -170,21 +172,24 @@
             });</script>
     </div>
     -->
+    
+    <!--<input class="form-control" type="text" ng-controller="MyController">-->
 
-    <div id="submitConfirm" ng-app="app" ng-controller="MyController">
+    <br />
+
+    <div id="submitConfirm" ng-controller="MyController">
 
         <div id="submit">
             <input ng-click="openTable()" class="btn btn-primary" type="submit" value="Submit">
         </div>
 
         <br />
-        <br />
 
         <div id="confirm" ng-show="isVisible" class="ng-hide">
 
             <h2>Confirmation:</h2>
             <p>
-                Fleet: {{fleetName}} 
+                Fleet: {{fleetName}} <br />
                 Tail Number(s): {{tailNumber}} <br />
                 System Name: {{systemName}}<br />
                 LRU Name: {{hardwareName}}<br />
@@ -193,12 +198,13 @@
                 Software Part Number: {{softwarePartNumber}}<br />
                 Pre/Post Condition: {{prePost}}<br />
                 EC Number: {{ecNum}}<br />
+                TestValue: {{testVal}}
             </p>
 
             <br /> 
 
             <p> Would like to submit the part information displayed above? </p>
-            <input class="btn btn-primary" type="submit" value="Confirm">
+            <input class="btn btn-success" type="submit" value="Confirm and Submit Update">
 
         </div>
 
