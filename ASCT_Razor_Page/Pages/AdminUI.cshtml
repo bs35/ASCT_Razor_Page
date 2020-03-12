@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model AdminUIModel
 @{
     ViewData["Title"] = "Admin Portal";
@@ -13,19 +14,16 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/ASCT_Style.css" />
-
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
             $('.js-example-basic-multiple').select2();
-        });
-    </script>
+        });</script>
 
-    <!-- Import Links for Checkmarks on Fleet select-->
+    <!-- Import Links for Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
@@ -34,7 +32,7 @@
 
 
 </head>
-<body>
+<body ng-app="app">
     <h1 id="title">Alaska Airlines Software Configuration <b>Admin</b> Portal</h1>
 
     <!--
@@ -43,6 +41,8 @@
         <button type="button" id="airbus-button" class="btn btn-outline-primary">Airbus</button>
     </div>
     -->
+    <br />
+    <br />
     <div class="container modified_container" id="fleet-select-admin">
         <label>
             <input type="radio" name="demo" class="card-input-element" value="airbus" id="boeing-button">
@@ -64,12 +64,11 @@
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
                 <label for="system-name">Tail Number(s)</label>
-                <input type="text" class="form-control" asp-for="Unit.Tail_Number" id="tail-number" placeholder="ex: 224AS">
+                <input type="text" class="form-control" id="tail-number" placeholder="ex: FMC">
             </div>
         </form>
         <!--
         <select class="js-example-basic-multiple" name="tailNumbers[]" multiple="multiple" id="tail-num-select">
-
             <option value="122">122</option>
             <option value="123">123</option>
             <option value="123">124</option>
@@ -77,7 +76,6 @@
             <option value="123">325</option>
             <option value="123">471</option>
             <option value="123">095</option>
-
         </select>
         -->
     </div>
@@ -86,8 +84,8 @@
         <form>
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
-                <label for="LRU-Name">System Name</label>
-                <input type="text" asp-for="Unit.LRU_Name" class="form-control" id="LRU-name" placeholder="ex: FMC">
+                <label for="LRU-Name">LRU Name</label>
+                <input type="text" asp-for="Unit.LRU_Name" class="form-control" id="LRU-name" placeholder="ex: Attendant Control Panel">
             </div>
         </form>
     </div>
@@ -117,8 +115,8 @@
             <div class="form-group">
                 <!-- Design choice; label or no label for tail number input?-->
                 <!-- Can be removed since it's redundant with Software Name -->
-                <label for="system-name">Software Name</label>
-                <input type="text" class="form-control" asp-for="Unit.Software_Name" id="system-name" placeholder="ex: OPC">
+                <label for="system-name">System Name</label>
+                <input type="text" class="form-control" asp-for="Unit.Software_Name" id="system-name" placeholder="ex: FMC">
             </div>
         </form>
     </div>
@@ -149,20 +147,42 @@
         </form>
     </div>
 
+    <br />
+
+    <!--
     <div id="submit">
         <input class="btn btn-primary" type="submit" value="Submit">
     </div>
+    -->
 
-    <div id="submitConfirm" ng-app="app" ng-controller="MyController">
+    <br />
+
+    <!--
+    <div ng-app="TestApp" ng-controller="TestController" ng-model="value">
+        App: {{value}}
+        <script>var app1 = angular.module('TestApp', []);
+            app1.controller('TestController', function ($scope) {
+                $scope.value = "Test App";
+            });</script>
+    </div>
+    -->
+    <!--<input class="form-control" type="text" ng-controller="MyController">-->
+
+    <br />
+
+    <div id="submitConfirm" ng-controller="MyController">
 
         <div id="submit">
             <input ng-click="openTable()" class="btn btn-primary" type="submit" value="Submit">
         </div>
+
+        <br />
+
         <div id="confirm" ng-show="isVisible" class="ng-hide">
 
             <h2>Confirmation:</h2>
             <p>
-                Fleet: {{fleetName}}
+                Fleet: {{fleetName}} <br />
                 Tail Number(s): {{tailNumber}} <br />
                 System Name: {{systemName}}<br />
                 LRU Name: {{hardwareName}}<br />
@@ -171,26 +191,24 @@
                 Software Part Number: {{softwarePartNumber}}<br />
                 Pre/Post Condition: {{prePost}}<br />
                 EC Number: {{ecNum}}<br />
+                TestValue: {{testVal}}
             </p>
 
             <br />
 
             <p> Would like to submit the part information displayed above? </p>
+            <input class="btn btn-success" type="submit" value="Confirm and Submit Update">
 
-            <input class="btn btn-primary" type="submit" value="Confirm">
         </div>
+
         <script>
             var app = angular.module('ConfirmationApp', ['ngRoute']);
-
             app.controller('ConfirmationController', function ($scope) {
-
                 $scope.isVisible() = false;
-
 
                 $scope.openConfirmation() = function () {
                     $scope.isVisible = true;
                 }
-
 
                 $scope.fleetName = "Boeing";
                 $scope.tailNumber = "224AS";
@@ -201,8 +219,13 @@
                 $scope.softwarePartNumber = "5569090-001";
                 $scope.prePost = "PRE";
                 $scope.ecNum = "54467";
-
             });</script>
     </div>
+
+
+    <br />
+    <br />
+
+
 </body>
 </html>
