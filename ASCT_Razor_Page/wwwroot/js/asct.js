@@ -10,16 +10,10 @@ app1.controller('MyController', function ($scope) {
 
     $scope.fleetName = "Boeing";
     $scope.tailNumber = "224AS";
-    $scope.systemName = "FMC00";
-    $scope.hardwareName = "FMC";
+    $scope.systemName = "FMC";
     $scope.hardwarePartNumber = "176200-01-01";
     $scope.softwareName = "OPS";
     $scope.softwarePartNumber = "5569090-001";
     $scope.prePost = "PRE";
     $scope.ecNum = "54467";
-    $scope.testVal = "TEST_TEST_TEST";
-});
-
-$(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
 });
