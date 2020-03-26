@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Aircrafts]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1,1) PRIMARY KEY, 
     [TailNumber] NVARCHAR(50) NOT NULL, 
     [LRUName] NVARCHAR(50) NOT NULL, 
     [LRUPartNumber] NVARCHAR(50) NOT NULL, 

@@ -12,7 +12,7 @@ namespace ASCT_Razor_Page.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly ApplicationDbContext _db;
+        //private readonly ApplicationDbContext _db;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
