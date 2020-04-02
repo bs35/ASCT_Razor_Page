@@ -1,0 +1,16 @@
+<mat-card id="card" >
+  <mat-title id="title-tail">Tail Number:</mat-title>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <form>
+      <mat-form-field>
+        <mat-label for="tail-number">Tail Number</mat-label>
+        <input id="tail-number"
+               type="text"
+               placeholder="ex: 224AS"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto"/>
+      </mat-form-field>
+    </form>
+    </div>
+</mat-card>

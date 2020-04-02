@@ -1,0 +1,12 @@
+
+<mat-card id="outer-border">
+  <mat-card-title id="fleet-title">Fleet Selection:</mat-card-title>
+  <mat-card-actions id="card" fxLayout="row" fxLayoutAlign="space-evenly">
+    
+    <button id="boeing-btn" layout-align="space-between" (click)="onBoeingClick()" mat-raised-button color="primary" [disabled]="fleetSelection=='Airbus'">Boeing</button>
+
+    <button id="airbus-btn" layout-align="space-between" (click)="onAirbusClick()" mat-raised-button color="warn" [disabled]="fleetSelection=='Boeing'">Airbus</button>
+
+    <button id="reset-btn" (click)="onReset()" mat-raised-button color="accent" [disabled]="fleetSelection=='Unselected'">Undo</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,47 @@
+<mat-chip-list>
+  <mat-chip>Tail: 224AS</mat-chip>
+  <mat-chip>System: FMC</mat-chip>
+</mat-chip-list>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+  The actual rendered columns are set as a property on the row definition" -->
+  <!-- Position Column -->
+  <ng-container matColumnDef="LRU Part Number">
+    <th mat-header-cell *matHeaderCellDef> LRU Part Number</th>
+    <td mat-cell *matCellDef="let element"> {{element.LRU_PART_NUMBER}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="OPS">
+    <th mat-header-cell *matHeaderCellDef> OPS </th>
+    <td mat-cell *matCellDef="let element"> {{element.OPS}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="OPC">
+    <th mat-header-cell *matHeaderCellDef> OPC </th>
+    <td mat-cell *matCellDef="let element"> {{element.OPC}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="MEDB">
+    <th mat-header-cell *matHeaderCellDef> MEDB </th>
+    <td mat-cell *matCellDef="let element"> {{element.MEDB}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ADDB">
+    <th mat-header-cell *matHeaderCellDef> ADDB </th>
+    <td mat-cell *matCellDef="let element"> {{element.ADDB}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license -->

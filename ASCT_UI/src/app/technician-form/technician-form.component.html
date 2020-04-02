@@ -1,0 +1,12 @@
+<h1 id="title" align="center">Alaska Airline Software Configuration Technician Portal</h1>
+<div fxLayout="column" fxLayoutAlign="space-evenly">
+<fleet-select></fleet-select>
+<tail-number></tail-number>
+<br/>
+<system-name></system-name>
+
+<button id="submit-btn" class="button" type="submit" (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
+
+<technician-output-table [hidden]="!formSubmitted"></technician-output-table>
+
+</div>

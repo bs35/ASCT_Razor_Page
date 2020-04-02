@@ -1,0 +1,22 @@
+<mat-card id="card">
+  <mat-title id="title-system-name">System Name:</mat-title>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <form>
+      <mat-form-field>
+        <mat-label for="system-name">System Name</mat-label>
+        <input id="system-name"
+               type="text"
+               placeholder="ex: FMC"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto" />
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-card>
