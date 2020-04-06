@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ASCT_Razor_Page.Models
+namespace ASCT_API.Models
 {
     public class Aircraft
     {
@@ -28,8 +31,5 @@ namespace ASCT_Razor_Page.Models
         [Column(TypeName = "nvarchar(100)")]
         public string Pre_Post_Condition { get; set; }
 
-        public Aircraft()
-        {
-        }
     }
 }
