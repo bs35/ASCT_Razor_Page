@@ -28,7 +28,8 @@ namespace ASCT_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(option => option.EnableEndpointRouting = false)
+            services.AddControllers();
+            services.AddMvc(option => { option.EnableEndpointRouting = false; })
                 //.AddNewtonsoftJson
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(options => {
@@ -57,11 +58,12 @@ namespace ASCT_API
             .AllowAnyMethod()
             .AllowAnyHeader());
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Aircraft}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
         }
