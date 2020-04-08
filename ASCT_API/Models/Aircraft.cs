@@ -9,6 +9,7 @@ namespace ASCT_API.Models
 {
     public class Aircraft
     {
+        [Key]
         [Required(ErrorMessage = "Tail Number is required.")]
         [StringLength(6, MinimumLength = 6, ErrorMessage = "Invalid Tail Number.")]
         public string Tail_Number { get; set; }
@@ -28,8 +29,15 @@ namespace ASCT_API.Models
         [Column(TypeName = "nvarchar(100)")]
         public string EC_Number { get; set; }
 
-        [Column(TypeName = "nvarchar(100)")]
-        public string Pre_Post_Condition { get; set; }
+        [Column(TypeName = "text")]
+        public string PRE_POST_Notes { get; set; }
+
+        [Column(TypeName = "nvarchar(50)")]
+        public string Fleet_Type { get; set; }
+
+        public Aircraft() { 
+
+        }
 
     }
 }

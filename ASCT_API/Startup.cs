@@ -36,7 +36,7 @@ namespace ASCT_API
 
                 });
 
-            services.AddDbContext<AircraftDBContext>(options
+            services.AddDbContextPool<AircraftDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             
             services.AddCors();
