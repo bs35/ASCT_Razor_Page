@@ -28,15 +28,16 @@ namespace ASCT_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                //.AddNewtonsoftJson
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(options => {
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                     options.JsonSerializerOptions.PropertyNamingPolicy = null;
 
                 });
 
-            services.AddDbContextPool<AircraftDBContext>(options
+            services.AddDbContext<AircraftDBContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             
             services.AddCors();
@@ -56,7 +57,13 @@ namespace ASCT_API
             .AllowAnyMethod()
             .AllowAnyHeader());
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Aircraft}/{action=Index}/{id?}");
+            });
+
         }
     }
 }
