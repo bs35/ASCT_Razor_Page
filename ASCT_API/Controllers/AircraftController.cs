@@ -9,7 +9,7 @@ using ASCT_API.Models;
 
 namespace ASCT_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/aircraft")]
     [ApiController]
     public class AircraftController : ControllerBase
     {
